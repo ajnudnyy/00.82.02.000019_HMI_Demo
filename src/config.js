@@ -1,6 +1,6 @@
 /**
  * @file CMS平台整体配置文件
- * @author niyingfeng<yingfeng.ni@gmail.com> 
+ * @author niyingfeng<yingfeng.ni@gmail.com>
  *
  * header 管理后台头部配置
  *     title    String  标题
@@ -28,10 +28,10 @@
 
 const Config = {
     header: {
-        title: '测试配置管理后台',
+        title: '设备实时监控系统',
         icon: 'appstore',
         style: {
-            backgroundColor: '#F5F5F5',
+            backgroundColor: 'rgb(255, 255, 255)',
             color: '#666'
         },
         menu: [
@@ -101,7 +101,7 @@ const Config = {
             //         {title: '选项1', key: 'Feature1'},
             //         {title: '选项2', key: 'Feature2'},
             //         {title: '选项3', key: 'Feature3'},
-            //         {   
+            //         {
             //             title: '导航3',
             //             key: 'subTitle3',
             //             icon: ',
@@ -135,23 +135,23 @@ const Config = {
             'bigset': {
                 title: 'bigset 测试',
                 component: require('./components/feature/Feature1-1')
-            }, 
+            },
             'Feature1-1': {
                 title: 'table 普通列表数据展示 前端处理分页',
                 component: require('./components/feature/Feature1-1')
-            }, 
+            },
             'Feature1-1-1': {
                 title: 'table 普通列表数据展示 接口请求分页',
                 component: require('./components/feature/Feature1-1-1')
-            }, 
+            },
             'Feature1-2': {
                 title: 'table 具有相关操作数据展示',
                 component: require('./components/feature/Feature1-2')
-            }, 
+            },
             'Feature1-3': {
                 title: 'table 数据搜索数据操作',
                 component: require('./components/feature/Feature1-3')
-            }, 
+            },
             'Feature1-4': {
                 title: 'table 数据增加数据操作',
                 component: require('./components/feature/Feature1-4')
@@ -159,15 +159,15 @@ const Config = {
             'Feature1-5': {
                 title: 'table 数据更新数据操作',
                 component: require('./components/feature/Feature1-5')
-            }, 
+            },
             'Feature1-6': {
                 title: 'table 数据删除数据操作',
                 component: require('./components/feature/Feature1-6')
-            }, 
+            },
             'Feature2-1': {
                 title: 'simple对象 数据展示',
                 component: require('./components/feature/Feature2-1')
-            }, 
+            },
             'Feature2-2': {
                 title: 'simple对象数据修改操作',
                 component: require('./components/feature/Feature2-2')
@@ -179,11 +179,11 @@ const Config = {
             'Feature3-2': {
                 title: '数据可视化 数据展示',
                 component: require('./components/feature/Feature3-2')
-            }, 
+            },
             'Feature3-3': {
                 title: '数据可视化 数据展示',
                 component: require('./components/feature/Feature3-3')
-            }, 
+            },
             'Feature4-1': {
                 title: '综合数据展示',
                 component: require('./components/feature/Feature4-1')
@@ -191,17 +191,17 @@ const Config = {
             'Feature5-1': {
                 title: '富文本编辑区域',
                 component: require('./components/feature/Feature5-1')
-            }, 
+            },
             'Feature5-2': {
                 title: '自定义组装',
                 component: require('./components/feature/Feature5-2')
             }
         },
-        style: {} 
+        style: {}
     },
 
     userInfo:{
-        name: BaiduInfo.name || '游客',
+        name: BaiduInfo.name || 'operator',
         aver: BaiduInfo.aver || 'http://himg.bdimg.com/sys/portrait/item/113e68695f79696e6766656e67525e.jpg',
         permission: BaiduInfo.permission,
         loginUrl: BaiduInfo.loginUrl

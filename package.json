@@ -14,11 +14,15 @@
     "immutable": "^3.8.1",
     "moment": "^2.15.2",
     "react": "^15.1.0",
+    "react-bootstrap": "^0.31.2",
     "react-copy-to-clipboard": "^4.2.3",
     "react-dom": "^15.1.0",
+    "react-slick": "^0.14.11",
+    "react-svg": "^2.1.21",
     "react-tinymce": "^0.5.1",
     "reqwest": "^2.0.5",
     "routes": "^2.1.0",
+    "slick-carousel": "^1.7.1",
     "src": "^1.1.2"
   },
   "devDependencies": {

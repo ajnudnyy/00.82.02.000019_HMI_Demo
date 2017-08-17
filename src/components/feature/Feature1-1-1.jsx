@@ -7,8 +7,8 @@ import FeatureSetConfig from '../common/FeatureSetConfig';
 
 // 增加(Create)、重新取得数据(Retrieve)、更新(Update)和删除(Delete)
 const table_conf = {
-    
-    type: 'tableList', // tableList graphList simpleObject complexObject 
+
+    type: 'tableList', // tableList graphList simpleObject complexObject
 
     // 接口分页处理
     // callback 回传列表数据 第二参数接受 总数与每页数目
@@ -17,7 +17,7 @@ const table_conf = {
         Reqwest({
             url: '/api/example2',
             data: {
-                page:num,
+                page: num,
                 pageSize: 20
             },
 
@@ -34,7 +34,7 @@ const table_conf = {
             }
         });
     },
-        
+
     // table 列表展现配置
     // {
     //      title       table显示表题
@@ -44,7 +44,7 @@ const table_conf = {
     //      sort        是否需要排序功能
     //      width       自定义该列宽度 否则等分
     // }
-    // 
+    //
     // table 列表头标题
     columns: [
         {
@@ -83,7 +83,7 @@ const table_conf = {
                 }
             },{
                 render: (text, item) => (<CopyClipboard title='复制链接' type='link' data={item.link} />)
-            }], 
+            }],
         }
     ]
 

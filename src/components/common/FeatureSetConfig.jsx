@@ -14,7 +14,7 @@ import Reqwest from 'reqwest';
 import CFormItem from './CreateFormItem';
 import CTextItem from './CreateTextItem';
 
-// 搜索查询栏form 创建新item-form 更新form 
+// 搜索查询栏form 创建新item-form 更新form
 import UForm from './UpdateForm';
 import CForm from './CreateForm';
 import RForm from './RetrieveForm';
@@ -23,10 +23,9 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 
-
 // 依赖 config 主题生成react 组件函数
 const FeatureSet = (config) => {
-    
+
     let tableFeature = React.createClass({
         getInitialState: function(){
             return {
@@ -36,12 +35,12 @@ const FeatureSet = (config) => {
 
                 updateFromShow: false,
                 updateFromItem: {},
-                
+
                 total: 0,
                 pageSize: 10
             }
         },
-        
+
         componentWillMount: function(){
             this.setState({
                 loading: true,
@@ -69,7 +68,7 @@ const FeatureSet = (config) => {
             }else{
                 table = <Table dataSource={this.state.resultList} columns={this.state.columns} loading={this.state.loading} bordered/>;
             }
-            
+
             return  <div className={this.props.className}>
                         <RForm RType={config.RType} submit={self.handleRetrieve}/>
                         <CForm CType={config.CType} submit={self.handleCreate}/>
@@ -77,7 +76,7 @@ const FeatureSet = (config) => {
                         {table}
                     </div>
         },
-        
+
         // 预处理配置显示中的 colums 数据 用于anted的table配置
         dealConfigColumns: function(lists){
             const self = this;
@@ -90,11 +89,11 @@ const FeatureSet = (config) => {
                     key: item.dataIndex,
                     width: item.width
                 }
-                
+
                 if( item.type === 'operate' ){
                     // 兼容单一形式与数组形式
                     let btns = Array.isArray(item.btns)?item.btns:[item.btns];
-                    
+
                     // 处理表单 操作 栏目以及回调函数
                     column.render = item.render || function(txt, record){
                         return <span>
@@ -115,8 +114,6 @@ const FeatureSet = (config) => {
                                                 </span>
                                             );
                                         }
-                                        
-                                            
                                     })
                                 }
                                 </span>
@@ -132,13 +129,13 @@ const FeatureSet = (config) => {
                     column.sorter = item.sorter || ((a, b) => a[item.dataIndex] - b[item.dataIndex]);
                 }
                 columns.push(column);
-                
+
             });
-            
+
             return columns;
-            
+
         },
-        
+
         // columns 类型对应的通用痛render
         renderFunc: {
             link: (text) => (
@@ -151,7 +148,7 @@ const FeatureSet = (config) => {
                         <img src={url} />
                     </span>)
         },
-        
+
         handleCreate: function(info){
             const self = this;
 
@@ -180,7 +177,7 @@ const FeatureSet = (config) => {
         handleUpdate: function(info){
             const self = this;
             let result = Immutable.fromJS(self.state.resultList);
-            
+
             let infoN = Immutable.fromJS(self.state.updateFromItem).merge(info).toJS();
             config.Update(infoN, function(item){
                 let resultList = result.map(function(v, i){
@@ -191,7 +188,7 @@ const FeatureSet = (config) => {
                     }
                 });
                 message.success('更新成功');
-                
+
                 self.setState({
                     loading: false,
                     updateFromShow: false,
@@ -212,7 +209,7 @@ const FeatureSet = (config) => {
             self.setState({
                 loading: true
             });
-            
+
             config.Retrieve(info, function(list){
                 self.setState({
                     loading: false,
@@ -220,7 +217,7 @@ const FeatureSet = (config) => {
                 });
             });
         },
-        
+
         // table 操作列回调处理
         operateCallbacks: function(item, btn){
             const self = this;
@@ -231,7 +228,7 @@ const FeatureSet = (config) => {
                 let type = btn.type;
                 let itemI = Immutable.fromJS(item);
                 let result = Immutable.fromJS(self.state.resultList);
-                
+
                 // table 操作栏目通用设定为 更新与删除 两项
                 if(type === 'update'){
                     this.setState({
@@ -242,7 +239,7 @@ const FeatureSet = (config) => {
                     this.setState({
                         loading: true
                     });
-                    
+
                     config.Delete(itemI.toJS(), function(){
                         resultList = result.filter(function(v, i){
                             if(v.get('key') !== itemI.get('key')){
@@ -258,7 +255,7 @@ const FeatureSet = (config) => {
                     });
                 }
 
-               
+
             }else if(btn.callback){
                 btn.callback(item);
             }
@@ -266,7 +263,7 @@ const FeatureSet = (config) => {
 
         componentDidMount: function(){
             const self = this;
-            
+
             // 处理接口分页的逻辑
             if(config.pageData){
                 self.getpageData(1);
@@ -303,12 +300,12 @@ const FeatureSet = (config) => {
             return {
                 item:{},
                 loading: false,
-    
+
                 updateFromShow: false,
                 updateFromItem: {}
             }
         },
-        
+
         componentWillMount: function(){
         },
 
@@ -324,7 +321,7 @@ const FeatureSet = (config) => {
 
             const operate = config.operate || [];
 
-            return  <div className={this.props.className}> 
+            return  <div className={this.props.className}>
                         <Form layout="horizontal" className='p-relative'>
                             {
                                 this.state.loading?
@@ -333,7 +330,7 @@ const FeatureSet = (config) => {
                                     </div>:
                                     ''
                             }
-                            { 
+                            {
                                 config.columns?
                                     config.columns.map(function(item){
                                         item.value = itemInfo[item.dataIndex]||'';
@@ -341,7 +338,7 @@ const FeatureSet = (config) => {
                                     }):
                                     ''
                             }
-                            { 
+                            {
                                 config.UType?
                                     config.UType.map(function(item){
                                         item.defaultValue = itemInfo[item.name]||'';
@@ -350,7 +347,7 @@ const FeatureSet = (config) => {
                                     ''
                             }
                         </Form>
-                        { 
+                        {
                             operate.map(function(btn){
                                 return <Button key={btn.text} type="primary" size="large" onClick={self.operateCallbacks.bind(self, btn)} style={btn.style}>{btn.text}</Button>
                             })
@@ -363,7 +360,7 @@ const FeatureSet = (config) => {
             self.setState({
                 loading: true
             });
-            
+
             config.initData(function(item){
                 self.setState({
                     item: item,
@@ -386,14 +383,14 @@ const FeatureSet = (config) => {
                         item: item
                     });
                 });
-               
+
             }else if(btn.callback){
                 btn.callback(itemI.toJS());
             }
         }
     });
     simpleFeature = Form.create()(simpleFeature);
-    
+
 
     let graphFeature = React.createClass({
         getInitialState: function(){
@@ -401,7 +398,7 @@ const FeatureSet = (config) => {
                 option: false
             }
         },
-        
+
         componentWillMount: function(){
         },
 
@@ -414,8 +411,8 @@ const FeatureSet = (config) => {
             return  <div className={this.props.className}>
                         {this.state.option?
                         <ReactEcharts
-                            option={this.state.option} 
-                            style={config.EchartStyle} 
+                            option={this.state.option}
+                            style={config.EchartStyle}
                             className='react_for_echarts' />:
                         ''}
                     </div>
@@ -436,24 +433,20 @@ const FeatureSet = (config) => {
         case 'tableList':
             return tableFeature;
             break;
-
         case 'graphList':
             return graphFeature;
             break;
-            
+
         case 'simpleObject':
             return simpleFeature;
             break;
-            
         case 'complexObject':
             return complexFeature;
             break;
-
         default:
             return tableFeature;
             break;
     }
 }
-
 
 export default FeatureSet;
