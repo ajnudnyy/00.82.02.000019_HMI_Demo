@@ -6,7 +6,7 @@
 // 处理时间格式数据
 // 处理自定义链接参数数据
 
-export default { 
+export default {
     DateFormat: function (date, fmt) {
         if (typeof date === 'string') {
             date = new Date(date);
@@ -37,11 +37,10 @@ export default {
                 fmt = fmt.replace(RegExp.$1,
                     (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
             }
-
         }
         return fmt;
     },
-    
+
     ParamsFixed: function (str) {
         let pObj = {};
         let pArr = str.split('&');

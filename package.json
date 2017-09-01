@@ -12,7 +12,10 @@
     "echarts-for-react": "^1.1.5",
     "font": "0.0.4",
     "immutable": "^3.8.1",
+    "ip": "^1.1.5",
     "moment": "^2.15.2",
+    "mqtt": "^2.12.0",
+    "mqtt-react": "^0.0.3",
     "react": "^15.1.0",
     "react-bootstrap": "^0.31.2",
     "react-copy-to-clipboard": "^4.2.3",
@@ -23,7 +26,8 @@
     "reqwest": "^2.0.5",
     "routes": "^2.1.0",
     "slick-carousel": "^1.7.1",
-    "src": "^1.1.2"
+    "src": "^1.1.2",
+    "websocket-stream": "^5.0.1"
   },
   "devDependencies": {
     "atool-build": "^0.7.6",

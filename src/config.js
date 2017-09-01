@@ -140,61 +140,9 @@ const Config = {
                 title: 'table 普通列表数据展示 前端处理分页',
                 component: require('./components/feature/Feature1-1')
             },
-            'Feature1-1-1': {
-                title: 'table 普通列表数据展示 接口请求分页',
-                component: require('./components/feature/Feature1-1-1')
-            },
             'Feature1-2': {
                 title: 'table 具有相关操作数据展示',
                 component: require('./components/feature/Feature1-2')
-            },
-            'Feature1-3': {
-                title: 'table 数据搜索数据操作',
-                component: require('./components/feature/Feature1-3')
-            },
-            'Feature1-4': {
-                title: 'table 数据增加数据操作',
-                component: require('./components/feature/Feature1-4')
-            },
-            'Feature1-5': {
-                title: 'table 数据更新数据操作',
-                component: require('./components/feature/Feature1-5')
-            },
-            'Feature1-6': {
-                title: 'table 数据删除数据操作',
-                component: require('./components/feature/Feature1-6')
-            },
-            'Feature2-1': {
-                title: 'simple对象 数据展示',
-                component: require('./components/feature/Feature2-1')
-            },
-            'Feature2-2': {
-                title: 'simple对象数据修改操作',
-                component: require('./components/feature/Feature2-2')
-            },
-            'Feature3-1': {
-                title: '数据可视化 数据展示',
-                component: require('./components/feature/Feature3-1')
-            },
-            'Feature3-2': {
-                title: '数据可视化 数据展示',
-                component: require('./components/feature/Feature3-2')
-            },
-            'Feature3-3': {
-                title: '数据可视化 数据展示',
-                component: require('./components/feature/Feature3-3')
-            },
-            'Feature4-1': {
-                title: '综合数据展示',
-                component: require('./components/feature/Feature4-1')
-            },
-            'Feature5-1': {
-                title: '富文本编辑区域',
-                component: require('./components/feature/Feature5-1')
-            },
-            'Feature5-2': {
-                title: '自定义组装',
-                component: require('./components/feature/Feature5-2')
             }
         },
         style: {}
