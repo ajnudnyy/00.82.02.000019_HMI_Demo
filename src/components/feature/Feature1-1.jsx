@@ -275,9 +275,9 @@ export default class Manipulator extends Component {
 
       seft.state.cru_fields.forEach(function(item){
         for(var _key in mqdat){
+
           if (mqdat.hasOwnProperty(_key)) { //filter
             if (item.key == _key) {
-
               if (
                 (typeof item.render != 'undefined')
                  && (typeof item.render != null)
@@ -288,7 +288,15 @@ export default class Manipulator extends Component {
               }
               else
               {
-                $('#'+item.id).html(mqdat[_key])
+                isNaN(parseFloat(mqdat[_key])) ? $('#'+item.id).html(mqdat[_key]) : $('#'+item.id).html(parseFloat(mqdat[_key]).toFixed(2))
+              }
+            } else if (_key == 'sys_gpi' || _key == 'sys_gpo'){
+
+              let gpvl = parseInt(mqdat[_key])
+              for (var n = 0; n < 16; n++) {
+                var light = (0 == (gpvl & (1 << n)) ? 0 : 1)
+                console.log(' + mqdat[_key] _ n=========', light)
+                light == 0 ? $('#' + _key + '_' + n).attr("width", "5") : $('#' + mqdat[_key] + n).attr("width", "10")
               }
             }
           }
@@ -556,7 +564,6 @@ export default class Manipulator extends Component {
           }}>
             {
                 this.state.listItems.map(function (item, index) {
-                  console.log('item========', item)
                   return (
                     <Card key={index}
                           bodyStyle={{
